@@ -9,8 +9,6 @@ export async function getPreviewImageMap(recordMap: ExtendedRecordMap): Promise<
     const urls: string[] = getPageImageUrls(recordMap, {
         mapImageUrl: defaultMapImageUrl,
     })
-        .concat([null, null].filter(Boolean))
-        .filter(Boolean)
 
     const previewImagesMap = Object.fromEntries(
         await pMap(
