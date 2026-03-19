@@ -1,13 +1,11 @@
 "use client"
-
-import { motion } from "framer-motion"
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { BlogPostDetail } from "@/lib/types"
 import { formatDate } from "@/lib/utils"
 import BlogContent from "./BlogContent"
-
+import { motion } from "framer-motion"
 interface PostHeaderProps {
     post: BlogPostDetail
 }
@@ -93,7 +91,7 @@ export default function PostHeader({ post }: PostHeaderProps) {
             </motion.div>
 
             {/* Cover Image */}
-            {post.coverImage && (
+            {(post.thumbnail || post.coverImage) && (
                 <motion.div
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -101,7 +99,7 @@ export default function PostHeader({ post }: PostHeaderProps) {
                     className="relative w-full h-64 sm:h-96 rounded-2xl overflow-hidden mb-10 bg-zinc-100 dark:bg-zinc-800"
                 >
                     <Image
-                        src={post.coverImage}
+                        src={post.thumbnail ?? post.coverImage!}
                         alt={post.title}
                         fill
                         className="object-cover"
@@ -117,7 +115,7 @@ export default function PostHeader({ post }: PostHeaderProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
             >
-                <BlogContent content={post.content} />
+                <BlogContent recordMap={post.recordMap} />
             </motion.div>
         </>
     )
