@@ -6,11 +6,13 @@ import { BlogPostDetail } from "@/lib/types"
 import { formatDate } from "@/lib/utils"
 import BlogContent from "./BlogContent"
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 interface PostHeaderProps {
     post: BlogPostDetail
 }
 
 export default function PostHeader({ post }: PostHeaderProps) {
+    const t = useTranslations()
     return (
         <>
             {/* Back button */}
@@ -24,7 +26,7 @@ export default function PostHeader({ post }: PostHeaderProps) {
                     className="inline-flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors mb-8 group"
                 >
                     <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
-                    Back to Blog
+                    {t("backToBlog")}
                 </Link>
             </motion.div>
 

@@ -2,9 +2,11 @@
 
 import { useSearchStore } from "@/lib/store"
 import { Search, X } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export default function SearchBar() {
     const { query, setQuery } = useSearchStore()
+    const t = useTranslations()
 
     return (
         <div className="relative">
@@ -13,7 +15,7 @@ export default function SearchBar() {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search articles..."
+                placeholder={t("search.placeholder")}
                 className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm outline-none focus:border-indigo-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/30 transition-all"
             />
             {query && (

@@ -1,39 +1,21 @@
-"use client"
-
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import { PenLine, Menu, X } from "lucide-react"
+import ThemeToggle from "./ThemeToggle"
+import LanguageToggle from "./LanguageToggle"
+import { getTranslations } from "next-intl/server"
 
-const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/blog", label: "Blog" },
-    { href: "/about", label: "About" },
-]
+export default async function Header() {
+    const t = await getTranslations()
 
-export default function Header() {
-    const pathname = usePathname()
-    const [scrolled, setScrolled] = useState(false)
-    const [menuOpen, setMenuOpen] = useState(false)
-
-    useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 20)
-        window.addEventListener("scroll", onScroll, { passive: true })
-        return () => window.removeEventListener("scroll", onScroll)
-    }, [])
-
-    useEffect(() => {
-        setMenuOpen(false)
-    }, [pathname])
+    const navLinks = [
+        { href: "/", label: t("nav.home") },
+        { href: "/blog", label: t("nav.blog") },
+        { href: "/about", label: t("nav.about") },
+    ]
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-                scrolled
-                    ? "bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md shadow-sm border-b border-zinc-200 dark:border-zinc-800"
-                    : "bg-transparent"
-            }`}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md shadow-sm border-b border-zinc-200 dark:border-zinc-800`}
         >
             <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
                 {/* Logo */}
@@ -48,8 +30,7 @@ export default function Header() {
                 {/* Desktop nav */}
                 <nav className="hidden md:flex items-center gap-1">
                     {navLinks.map((link) => {
-                        const isActive =
-                            link.href === "/" ? pathname === "/" : pathname.startsWith(link.href)
+                        const isActive = false
                         return (
                             <Link
                                 key={link.href}
@@ -64,20 +45,28 @@ export default function Header() {
                             </Link>
                         )
                     })}
+                    <div className="ml-2 flex items-center gap-1">
+                        <LanguageToggle />
+                        <ThemeToggle />
+                    </div>
                 </nav>
 
-                {/* Mobile menu button */}
-                <button
-                    className="md:hidden p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-                    onClick={() => setMenuOpen((v) => !v)}
-                    aria-label="Toggle menu"
-                >
-                    {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-                </button>
+                {/* Mobile controls */}
+                <div className="md:hidden flex items-center gap-1">
+                    <LanguageToggle />
+                    <ThemeToggle />
+                    {/* <button
+                        className="p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                        onClick={() => setMenuOpen((v) => !v)}
+                        aria-label="Toggle menu"
+                    >
+                        {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                    </button> */}
+                </div>
             </div>
 
             {/* Mobile menu */}
-            <AnimatePresence>
+            {/* <AnimatePresence>
                 {menuOpen && (
                     <motion.div
                         initial={{ opacity: 0, height: 0 }}
@@ -109,7 +98,7 @@ export default function Header() {
                         </nav>
                     </motion.div>
                 )}
-            </AnimatePresence>
+            </AnimatePresence> */}
         </header>
     )
 }

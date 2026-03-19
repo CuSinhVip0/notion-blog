@@ -1,7 +1,9 @@
 import Link from "next/link"
 import { PenLine, Github, Twitter } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export default function Footer() {
+    const t = useTranslations()
     const currentYear = new Date().getFullYear()
 
     return (
@@ -23,19 +25,19 @@ export default function Footer() {
                             href="/"
                             className="hover:text-zinc-900 dark:hover:text-white transition-colors"
                         >
-                            Home
+                            {t("nav.home")}
                         </Link>
                         <Link
                             href="/blog"
                             className="hover:text-zinc-900 dark:hover:text-white transition-colors"
                         >
-                            Blog
+                            {t("nav.blog")}
                         </Link>
                         <Link
                             href="/about"
                             className="hover:text-zinc-900 dark:hover:text-white transition-colors"
                         >
-                            About
+                            {t("nav.about")}
                         </Link>
                     </nav>
 
@@ -63,7 +65,7 @@ export default function Footer() {
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-zinc-100 dark:border-zinc-800 text-center text-xs text-zinc-400">
-                    © {currentYear} NotionBlog. Powered by{" "}
+                    © {currentYear} NotionBlog. {t("footer.rights")} Powered by{" "}
                     <a
                         href="https://notion.so"
                         target="_blank"

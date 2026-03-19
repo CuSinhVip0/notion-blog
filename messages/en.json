@@ -1,0 +1,43 @@
+{
+    "nav": {
+        "home": "Home",
+        "blog": "Blog",
+        "about": "About"
+    },
+    "hero": {
+        "poweredBy": "Powered by Notion",
+        "title": "Ideas, Thoughts & Stories",
+        "subtitle": "A personal blog exploring technology, design, and the things that spark curiosity."
+    },
+    "featured": "Featured",
+    "allArticles": "All Articles",
+    "readArticle": "Read article",
+    "noPostsYet": "No posts published yet",
+    "noPostsDesc": "Add published posts in your Notion database to see them here.",
+    "search": {
+        "placeholder": "Search articles..."
+    },
+    "readingTime": "min",
+    "notFound": {
+        "title": "Page not found",
+        "description": "The page you are looking for doesn't exist or has been moved.",
+        "backHome": "Back to Home"
+    },
+    "backToBlog": "Back to Blog",
+    "about": {
+        "title": "About Me",
+        "subtitle": "Developer, writer, curious human.",
+        "bio1": "Hi! I'm a software developer passionate about building things on the web. I write about technology, design systems, developer experience, and the occasional personal reflection.",
+        "bio2": "This blog is built with Next.js, Tailwind CSS, and powered by Notion as a headless CMS. All articles are written and managed directly in Notion.",
+        "techStack": "Tech Stack",
+        "getInTouch": "Get in Touch",
+        "getInTouchText": "Feel free to reach out via",
+        "getInTouchOr": "or"
+    },
+    "footer": {
+        "rights": "All rights reserved."
+    },
+    "error": {
+        "loadPosts": "Could not load posts. Please check your Notion API configuration in .env.local"
+    }
+}

@@ -1,46 +1,33 @@
-import { getAllPosts } from "@/lib/notion"
 import { BlogPost } from "@/lib/types"
-import BlogList from "@/components/BlogList"
-import SearchBar from "@/components/SearchBar"
-import TagFilter from "@/components/TagFilter"
-import type { Metadata } from "next"
+import BlogList from "./BlogList"
+import SearchBar from "./SearchBar"
+import TagFilter from "./TagFilter"
+import { useTranslations } from "next-intl"
 
-export const revalidate = 60
-
-export const metadata: Metadata = {
-    title: "Blog",
-    description: "Browse all articles on technology, design, and more.",
+interface BlogPageContentProps {
+    posts: BlogPost[]
+    error: string | null
+    allTags: string[]
 }
 
-export default async function BlogPage() {
-    let posts: BlogPost[] = []
-    let error: string | null = null
-
-    try {
-        posts = await getAllPosts()
-    } catch {
-        error = "Could not load posts. Please check your Notion API configuration."
-    }
-
-    const allTags = Array.from(new Set(posts.flatMap((p) => p.tags)))
+export default function BlogPageContent({ posts, error, allTags }: BlogPageContentProps) {
+    const t = useTranslations()
 
     return (
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
             {/* Header */}
             <div className="mb-10">
                 <h1 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white mb-3 tracking-tight">
-                    Blog
+                    {t("nav.blog")}
                 </h1>
                 <p className="text-zinc-500 dark:text-zinc-400">
-                    {posts.length > 0
-                        ? `${posts.length} article${posts.length !== 1 ? "s" : ""} – thoughts on tech, design & more`
-                        : "Coming soon..."}
+                    {t("blog.subtitle", { count: posts.length })}
                 </p>
             </div>
 
             {error && (
                 <div className="mb-8 p-4 rounded-xl border border-amber-200 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-800 text-amber-700 dark:text-amber-300 text-sm">
-                    ⚠️ {error}
+                    ⚠️ {t("error.loadPosts")}
                 </div>
             )}
 
@@ -65,7 +52,7 @@ export default async function BlogPage() {
                 <div className="text-center py-24">
                     <p className="text-5xl mb-4">📝</p>
                     <p className="text-lg font-medium text-zinc-600 dark:text-zinc-300">
-                        No posts yet
+                        {t("blog.noPostsYet")}
                     </p>
                 </div>
             )}

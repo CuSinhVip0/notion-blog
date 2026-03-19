@@ -3,9 +3,10 @@ import { Inter } from "next/font/google"
 import "@/styles/globals.css"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import Providers from "./providers"
 
 const inter = Inter({
-    subsets: ["latin"],
+    subsets: ["latin", "latin-ext"],
     display: "swap",
     variable: "--font-inter",
 })
@@ -35,13 +36,23 @@ export const metadata: Metadata = {
     },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+    children,
+    params,
+}: {
+    children: React.ReactNode
+    params: { lang: string }
+}) {
+    const { lang } = await params
+
     return (
-        <html lang="en" className={inter.variable} suppressHydrationWarning>
+        <html lang={lang} className={inter.variable} suppressHydrationWarning>
             <body className="min-h-screen flex flex-col bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
-                <Header />
-                <main className="flex-1 pt-16">{children}</main>
-                <Footer />
+                <Providers>
+                    <Header />
+                    <main className="flex-1 pt-16">{children}</main>
+                    <Footer />
+                </Providers>
             </body>
         </html>
     )

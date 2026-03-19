@@ -1,0 +1,43 @@
+{
+    "nav": {
+        "home": "Trang Chủ",
+        "blog": "Bài Viết",
+        "about": "Giới Thiệu"
+    },
+    "hero": {
+        "poweredBy": "Được tạo bởi Notion",
+        "title": "Ý Tưởng, Suy Nghĩ & Câu Chuyện",
+        "subtitle": "Blog cá nhân khám phá công nghệ, thiết kế và những điều khơi dậy sự tò mò."
+    },
+    "featured": "Nổi Bật",
+    "allArticles": "Tất Cả Bài Viết",
+    "readArticle": "Đọc bài",
+    "noPostsYet": "Chưa có bài viết nào",
+    "noPostsDesc": "Thêm bài viết đã xuất bản vào cơ sở dữ liệu Notion của bạn để xem ở đây.",
+    "search": {
+        "placeholder": "Tìm kiếm bài viết..."
+    },
+    "readingTime": "phút",
+    "notFound": {
+        "title": "Không tìm thấy trang",
+        "description": "Trang bạn tìm kiếm không tồn tại hoặc đã được chuyển đi.",
+        "backHome": "Về Trang Chủ"
+    },
+    "backToBlog": "Quay Lại Blog",
+    "about": {
+        "title": "Về Tôi",
+        "subtitle": "Lập trình viên, người viết, con người tò mò.",
+        "bio1": "Xin chào! Tôi là một nhà phát triển phần mềm đam mê xây dựng những sản phẩm trên web. Tôi viết về công nghệ, hệ thống thiết kế, trải nghiệm lập trình viên và những suy ngẫm cá nhân.",
+        "bio2": "Blog này được xây dựng với Next.js, Tailwind CSS và sử dụng Notion như một CMS phi tập trung. Tất cả bài viết được soạn thảo và quản lý trực tiếp trong Notion.",
+        "techStack": "Công Nghệ Sử Dụng",
+        "getInTouch": "Liên Hệ",
+        "getInTouchText": "Liên hệ qua",
+        "getInTouchOr": "hoặc"
+    },
+    "footer": {
+        "rights": "Bảo lưu mọi quyền."
+    },
+    "error": {
+        "loadPosts": "Không thể tải bài viết. Vui lòng kiểm tra cấu hình Notion API trong .env.local"
+    }
+}

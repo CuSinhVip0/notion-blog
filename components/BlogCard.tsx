@@ -1,11 +1,10 @@
-"use client"
-
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Calendar, Clock, ArrowRight } from "lucide-react"
 import { BlogPost } from "@/lib/types"
 import { formatDate } from "@/lib/utils"
+import { useTranslations } from "next-intl"
 
 interface BlogCardProps {
     post: BlogPost
@@ -13,6 +12,7 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, index = 0 }: BlogCardProps) {
+    const t = useTranslations()
     return (
         <motion.article
             initial={{ opacity: 0, y: 24 }}
@@ -70,7 +70,7 @@ export default function BlogCard({ post, index = 0 }: BlogCardProps) {
                                 </span>
                                 <span className="flex items-center gap-1">
                                     <Clock className="w-3.5 h-3.5" />
-                                    {post.readingTime} min
+                                    {post.readingTime} {t("readingTime")}
                                 </span>
                             </div>
                             <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all duration-200" />

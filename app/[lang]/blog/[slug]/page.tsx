@@ -7,7 +7,7 @@ import { cache, use } from "react"
 export const revalidate = 60
 
 interface Props {
-    params: Promise<{ slug: string }>
+    params: Promise<{ slug: string; lang: Locale }>
 }
 
 const getPostCached = cache(async (slug: string) => {
@@ -58,6 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
     const { slug } = await params
+
     let post
 
     try {

@@ -1,11 +1,8 @@
-import type { Metadata } from "next"
+import { useTranslations } from "next-intl"
 
-export const metadata: Metadata = {
-    title: "About",
-    description: "Learn more about the author behind NotionBlog.",
-}
+export default function AboutContent() {
+    const t = useTranslations()
 
-export default function AboutPage() {
     return (
         <div className="max-w-2xl mx-auto px-4 sm:px-6 py-16">
             {/* Avatar placeholder */}
@@ -15,41 +12,37 @@ export default function AboutPage() {
                 </div>
                 <div>
                     <h1 className="text-3xl font-extrabold text-zinc-900 dark:text-white mb-1 tracking-tight">
-                        About Me
+                        {t("about.title")}
                     </h1>
                     <p className="text-zinc-500 dark:text-zinc-400 text-sm">
-                        Developer, writer, curious human.
+                        {t("about.subtitle")}
                     </p>
                 </div>
             </div>
 
             <div className="prose prose-zinc dark:prose-invert prose-a:text-indigo-600 dark:prose-a:text-indigo-400 max-w-none">
-                <p>
-                    Hi! I&apos;m a software developer passionate about building things on the web. I
-                    write about technology, design systems, developer experience, and the occasional
-                    personal reflection.
-                </p>
+                <p>{t("about.bio1")}</p>
 
                 <p>
-                    This blog is built with{" "}
+                    {t("about.bio2").split("Next.js")[0]}
                     <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">
                         Next.js
                     </a>
-                    ,{" "}
+                    {t("about.bio2").split("Next.js")[1]?.split("Tailwind CSS")[0]}
                     <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer">
                         Tailwind CSS
                     </a>
-                    , and powered by{" "}
+                    {t("about.bio2").split("Tailwind CSS")[1]?.split("Notion")[0]}
                     <a href="https://notion.so" target="_blank" rel="noopener noreferrer">
                         Notion
-                    </a>{" "}
-                    as a headless CMS. All articles are written and managed directly in Notion.
+                    </a>
+                    {t("about.bio2").split("Notion")[1]}
                 </p>
 
-                <h2>Tech Stack</h2>
+                <h2>{t("about.techStack")}</h2>
                 <ul>
                     <li>
-                        <strong>Framework:</strong> Next.js 15 (App Router)
+                        <strong>Framework:</strong> Next.js 16 (App Router)
                     </li>
                     <li>
                         <strong>Styling:</strong> Tailwind CSS v4
@@ -65,13 +58,13 @@ export default function AboutPage() {
                     </li>
                 </ul>
 
-                <h2>Get in Touch</h2>
+                <h2>{t("about.getInTouch")}</h2>
                 <p>
-                    Feel free to reach out via{" "}
+                    {t("about.getInTouchText")}{" "}
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                         Twitter
                     </a>{" "}
-                    or{" "}
+                    {t("about.getInTouchOr")}{" "}
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                         GitHub
                     </a>
