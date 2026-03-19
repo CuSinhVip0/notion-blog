@@ -2,12 +2,17 @@ import { getPostBySlug, getAllSlugs } from "@/lib/notion"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import PostHeader from "@/components/PostHeader"
+import { cache, use } from "react"
 
 export const revalidate = 60
 
 interface Props {
     params: Promise<{ slug: string }>
 }
+
+const getPostCached = cache(async (slug: string) => {
+    return await getPostBySlug(slug)
+})
 
 export async function generateStaticParams() {
     try {
@@ -21,7 +26,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params
     try {
-        const post = await getPostBySlug(slug)
+        const post = await getPostCached(slug)
         if (!post) return { title: "Post not found" }
 
         return {
@@ -56,7 +61,7 @@ export default async function BlogPostPage({ params }: Props) {
     let post
 
     try {
-        post = await getPostBySlug(slug)
+        post = await getPostCached(slug)
     } catch {
         notFound()
     }
