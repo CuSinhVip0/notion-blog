@@ -15,7 +15,7 @@ export async function getPreviewImageMap(recordMap: ExtendedRecordMap): Promise<
             urls,
             async (url) => {
                 const cacheKey = normalizeUrl(url)
-                return [cacheKey, await getPreviewImage(url, { cacheKey })]
+                return [cacheKey, await getPreviewImage(url)]
             },
             {
                 concurrency: 8,
