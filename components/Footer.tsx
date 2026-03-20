@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { PenLine, Github, Twitter } from "lucide-react"
+import { Github, Twitter, Sprout } from "lucide-react"
 import { useTranslations } from "next-intl"
+import LanguageToggle from "./LanguageToggle"
 
 export default function Footer() {
     const t = useTranslations()
@@ -15,8 +16,8 @@ export default function Footer() {
                         href="/"
                         className="flex items-center gap-2 text-zinc-900 dark:text-white font-semibold hover:opacity-80 transition-opacity"
                     >
-                        <PenLine className="w-4 h-4 text-indigo-500" />
-                        <span>NotionBlog</span>
+                        <Sprout className="w-4 h-4 text-indigo-500" />
+                        <span>ShinCode</span>
                     </Link>
 
                     {/* Links */}
@@ -61,11 +62,12 @@ export default function Footer() {
                         >
                             <Twitter className="w-5 h-5" />
                         </a>
+                        <LanguageToggle />
                     </div>
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-zinc-100 dark:border-zinc-800 text-center text-xs text-zinc-400">
-                    © {currentYear} NotionBlog. {t("footer.rights")} Powered by{" "}
+                    © {currentYear} ShinCode. {t("footer.rights")} Powered by{" "}
                     <a
                         href="https://notion.so"
                         target="_blank"

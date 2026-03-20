@@ -21,7 +21,7 @@ export default function BlogPageContent({ posts, error, allTags }: BlogPageConte
                     {t("nav.blog")}
                 </h1>
                 <p className="text-zinc-500 dark:text-zinc-400">
-                    {t("blog.subtitle", { count: posts.length })}
+                    {t("nav.subtitle", { count: posts.length })}
                 </p>
             </div>
 

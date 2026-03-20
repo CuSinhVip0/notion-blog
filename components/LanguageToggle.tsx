@@ -12,6 +12,7 @@ export default function LanguageToggle() {
     const params = useParams()
     function toggle() {
         const nextLocale = locale === "en" ? "vi" : "en"
+        window.scrollTo({ top: 0, behavior: "instant" })
         startTransition(() => {
             router.replace(
                 // @ts-expect-error -- TypeScript will validate that only known `params`
@@ -30,7 +31,7 @@ export default function LanguageToggle() {
             aria-label="Switch language"
             title={locale === "en" ? "Switch to Vietnamese" : "Chuyển sang Tiếng Anh"}
         >
-            {locale === "en" ? "VI" : "EN"}
+            {locale === "en" ? "Tiếng Việt" : "English"}
         </button>
     )
 }

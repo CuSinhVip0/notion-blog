@@ -1,7 +1,6 @@
 import Link from "next/link"
-import { PenLine, Menu, X } from "lucide-react"
+import { Sprout } from "lucide-react"
 import ThemeToggle from "./ThemeToggle"
-import LanguageToggle from "./LanguageToggle"
 import { getTranslations } from "next-intl/server"
 
 export default async function Header() {
@@ -23,8 +22,8 @@ export default async function Header() {
                     href="/"
                     className="flex items-center gap-2 font-bold text-xl text-zinc-900 dark:text-white hover:opacity-80 transition-opacity"
                 >
-                    <PenLine className="w-5 h-5 text-indigo-500" />
-                    <span>NotionBlog</span>
+                    <Sprout className="w-5 h-5 text-indigo-500" />
+                    <span>ShinCode</span>
                 </Link>
 
                 {/* Desktop nav */}
@@ -46,14 +45,12 @@ export default async function Header() {
                         )
                     })}
                     <div className="ml-2 flex items-center gap-1">
-                        <LanguageToggle />
                         <ThemeToggle />
                     </div>
                 </nav>
 
                 {/* Mobile controls */}
                 <div className="md:hidden flex items-center gap-1">
-                    <LanguageToggle />
                     <ThemeToggle />
                     {/* <button
                         className="p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
