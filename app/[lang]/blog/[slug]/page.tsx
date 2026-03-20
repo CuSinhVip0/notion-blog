@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import PostHeader from "@/components/PostHeader"
 import { cache, use } from "react"
+import BlogContent from "@/components/BlogContent"
 
 export const revalidate = 60
 
@@ -72,6 +73,7 @@ export default async function BlogPostPage({ params }: Props) {
     return (
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
             <PostHeader post={post} />
+            <BlogContent recordMap={post.recordMap} />
         </div>
     )
 }
