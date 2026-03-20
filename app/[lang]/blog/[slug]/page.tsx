@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: Props) {
     return (
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
             <PostHeader post={post} />
-            <BlogContent recordMap={post.recordMap} />
+            <BlogContent recordMap={post.content} />
         </div>
     )
 }

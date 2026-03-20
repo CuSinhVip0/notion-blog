@@ -14,6 +14,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.38.0",
+    "github-markdown-css": "^5.9.0",
     "highlight.js": "^11.11.1",
     "katex": "^0.16.38",
     "ky": "^1.14.3",

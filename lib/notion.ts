@@ -4,7 +4,7 @@ import { NotionAPI } from "notion-client"
 import { BlogPost, BlogPostDetail } from "./types"
 import { ExtendedRecordMap } from "notion-types"
 import { getPreviewImageMap } from "./preview-images"
-
+import { NotionToMarkdown } from "notion-to-md"
 const notion = new Client({
     auth: process.env.NOTION_API_KEY,
 })
@@ -15,25 +15,9 @@ const notion = new Client({
 const notionApi = new NotionAPI({
     authToken: process.env.NOTION_TOKEN_V2,
 })
+const n2m = new NotionToMarkdown({ notionClient: notion })
 
 const DATABASE_ID = process.env.NOTION_DATABASE_ID!
-
-function normalizeNotionMarkdown(md: string): string {
-    return (
-        md
-            // Normalize line endings
-            .replace(/\r\n/g, "\n")
-            .replace(/\r/g, "\n")
-            // Notion sometimes over-escapes asterisks inside table cells (\*\* → **)
-            .replace(/\\\*/g, "*")
-            // Notion sometimes over-escapes underscores (\_text\_ → _text_)
-            .replace(/\\_/g, "_")
-            // Ensure blank line before ATX headings so they're not merged into prev paragraph
-            .replace(/([^\n])\n(#{1,6} )/g, "$1\n\n$2")
-            // Ensure blank line before table rows
-            .replace(/([^\n])\n(\|)/g, "$1\n\n$2")
-    )
-}
 
 function estimateReadingTime(text: string): number {
     const wordsPerMinute = 200
@@ -150,12 +134,8 @@ export async function getPostBySlug(slug: string): Promise<BlogPostDetail | null
     const page = pages[0]
     const post = mapPageToBlogPost(page)
 
-    // Notion v5 native markdown retrieval
-    const markdownResponse = await notion.pages.retrieveMarkdown({
-        page_id: page.id,
-    })
-    const content = normalizeNotionMarkdown(markdownResponse.markdown ?? "")
-
+    const mdblocks = await n2m.pageToMarkdown(page.id)
+    const mdString = n2m.toMarkdownString(mdblocks)
     // react-notion-x record map via unofficial API
     // page.id from official API is in format "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     // notion-client expects id without dashes
@@ -170,8 +150,8 @@ export async function getPostBySlug(slug: string): Promise<BlogPostDetail | null
 
     return {
         ...post,
-        content,
-        readingTime: estimateReadingTime(content),
+        content: mdString.parent,
+        readingTime: estimateReadingTime(mdString.parent),
         recordMap,
     }
 }
@@ -180,7 +160,7 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
     const recordMap = await notionApi.getPage(pageId)
 
     const previewImageMap = await getPreviewImageMap(recordMap)
-    ;(recordMap as any).preview_images = previewImageMap
+    ;(recordMap as ExtendedRecordMap).preview_images = previewImageMap
 
     return recordMap
 }
