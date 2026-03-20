@@ -7,7 +7,7 @@ import { cache, use } from "react"
 export const revalidate = 60
 
 interface Props {
-    params: Promise<{ slug: string; lang: Locale }>
+    params: Promise<{ slug: string; lang: "vi" | "en" }>
 }
 
 const getPostCached = cache(async (slug: string) => {
