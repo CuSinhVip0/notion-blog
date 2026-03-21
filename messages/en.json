@@ -2,7 +2,8 @@
     "nav": {
         "home": "Home",
         "blog": "Blog",
-        "about": "About"
+        "about": "About",
+        "subtitle": "Showing {count} articles"
     },
     "hero": {
         "poweredBy": "Powered by Notion",
@@ -12,6 +13,9 @@
     "featured": "Featured",
     "allArticles": "All Articles",
     "readArticle": "Read article",
+    "blog": {
+        "noPostsYet": "No posts available right now"
+    },
     "noPostsYet": "No posts published yet",
     "noPostsDesc": "Add published posts in your Notion database to see them here.",
     "search": {
