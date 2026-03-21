@@ -180,7 +180,7 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
     const recordMap = await notionApi.getPage(pageId)
 
     const previewImageMap = await getPreviewImageMap(recordMap)
-    ;(recordMap as any).preview_images = previewImageMap
+    ;(recordMap as ExtendedRecordMap).preview_images = previewImageMap
 
     return recordMap
 }
