@@ -16,20 +16,19 @@ const inter = Inter({
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
     title: {
-        default: "NotionBlog – Ideas, Thoughts & Stories",
-        template: "%s | NotionBlog",
+        default: "ShinCode – Ý tưởng, Suy nghĩ & Câu chuyện",
+        template: "%s | ShinCode",
     },
-    description:
-        "A personal blog powered by Notion. Explore articles on technology, design, and everything in between.",
+    description: "Blog cá nhân khám phá công nghệ, thiết kế và những điều khơi dậy sự tò mò.",
     openGraph: {
         type: "website",
-        locale: "en_US",
-        siteName: "NotionBlog",
+        locale: "vi_VN",
+        siteName: "ShinCode",
         images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     },
     twitter: {
         card: "summary_large_image",
-        site: "@yourhandle",
+        site: "@shincode",
     },
 }
 
