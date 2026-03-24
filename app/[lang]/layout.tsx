@@ -1,9 +1,11 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import { setRequestLocale } from "next-intl/server"
 import "@/styles/globals.css"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import Providers from "./providers"
+import { routing } from "@/i18n/routing"
 
 const inter = Inter({
     subsets: ["latin", "latin-ext"],
@@ -29,11 +31,10 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         site: "@yourhandle",
     },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: { index: true, follow: true },
-    },
+}
+
+export function generateStaticParams() {
+    return routing.locales.map((lang) => ({ lang }))
 }
 
 export default async function RootLayout({
@@ -41,9 +42,10 @@ export default async function RootLayout({
     params,
 }: {
     children: React.ReactNode
-    params: { lang: string }
+    params: Promise<{ lang: string }>
 }) {
     const { lang } = await params
+    setRequestLocale(lang)
 
     return (
         <html lang={lang} className={inter.variable} suppressHydrationWarning>
