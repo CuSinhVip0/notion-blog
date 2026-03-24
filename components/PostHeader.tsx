@@ -106,6 +106,7 @@ export default function PostHeader({ post }: PostHeaderProps) {
                         fill
                         className="object-cover"
                         priority
+                        fetchPriority="high"
                         sizes="(max-width: 896px) 100vw, 896px"
                     />
                 </motion.div>

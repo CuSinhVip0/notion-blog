@@ -2,7 +2,8 @@
     "nav": {
         "home": "Trang Chủ",
         "blog": "Bài Viết",
-        "about": "Giới Thiệu"
+        "about": "Giới Thiệu",
+        "subtitle": "Hiển thị {count} bài viết"
     },
     "hero": {
         "poweredBy": "Được tạo bởi Notion",
@@ -12,6 +13,9 @@
     "featured": "Nổi Bật",
     "allArticles": "Tất Cả Bài Viết",
     "readArticle": "Đọc bài",
+    "blog": {
+        "noPostsYet": "Hiện chưa có bài viết nào"
+    },
     "noPostsYet": "Chưa có bài viết nào",
     "noPostsDesc": "Thêm bài viết đã xuất bản vào cơ sở dữ liệu Notion của bạn để xem ở đây.",
     "search": {
