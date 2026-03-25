@@ -30,6 +30,7 @@ export default function ContactForm() {
     })
     const [status, setStatus] = useState<FormStatus>("idle")
     const [errors, setErrors] = useState<Partial<FormData>>({})
+    const [honeypot, setHoneypot] = useState("")
 
     const validate = (): boolean => {
         const newErrors: Partial<FormData> = {}
@@ -59,12 +60,12 @@ export default function ContactForm() {
 
         setStatus("sending")
         try {
-            // Send via mailto as a fallback — replace with your preferred email API
-            const mailtoHref = `mailto:sinhnguyen2k2@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-                `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`,
-            )}`
-            window.location.href = mailtoHref
-            await new Promise((r) => setTimeout(r, 800))
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ ...formData, honeypot }),
+            })
+            if (!res.ok) throw new Error()
             setStatus("sent")
             setFormData({ name: "", email: "", subject: "", message: "" })
         } catch {
@@ -73,31 +74,30 @@ export default function ContactForm() {
     }
 
     const inputBase =
-        "w-full bg-neutral-900/80 border rounded-xl px-4 py-3 text-white placeholder-neutral-500 outline-none transition-all duration-200 focus:ring-2 focus:ring-cyan-500/50"
-    const inputNormal = `${inputBase} border-neutral-700/60 focus:border-cyan-500/60`
+        "w-full bg-white dark:bg-neutral-900/80 border rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-neutral-500 outline-none transition-all duration-200 focus:ring-2 focus:ring-cyan-500/50"
+    const inputNormal = `${inputBase} border-gray-200 dark:border-neutral-700/60 focus:border-cyan-500/60`
     const inputError = `${inputBase} border-red-500/60 focus:border-red-500/80 focus:ring-red-500/30`
 
     return (
         <section id="contact" className="py-24 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 via-neutral-900/40 to-neutral-950 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white/40 to-gray-50 dark:from-neutral-950 dark:via-neutral-900/40 dark:to-neutral-950 pointer-events-none" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section header */}
                 <motion.div {...fadeInUp()} className="text-center mb-12">
-                    <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-400">
-                        {t("badge")}
-                    </span>
-                    <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent">
+                    <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-neutral-900 via-neutral-700 to-neutral-500 dark:from-white dark:via-neutral-200 dark:to-neutral-400 bg-clip-text text-transparent">
                         {t("title")}
                     </h2>
-                    <p className="text-neutral-400 max-w-lg mx-auto">{t("subtitle")}</p>
+                    <p className="text-gray-500 dark:text-neutral-400 max-w-lg mx-auto">
+                        {t("subtitle")}
+                    </p>
                     <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full mt-4" />
                 </motion.div>
 
                 <motion.div
                     {...fadeInUp(0.15)}
-                    className="relative p-8 rounded-2xl bg-neutral-900/60 border border-neutral-700/60 backdrop-blur-sm"
+                    className="relative p-8 rounded-2xl bg-white/60 dark:bg-neutral-900/60 border border-gray-200/60 dark:border-neutral-700/60 backdrop-blur-sm"
                 >
                     {/* Decorative corner gradient */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-2xl pointer-events-none" />
@@ -115,15 +115,17 @@ export default function ContactForm() {
                                 <div className="w-16 h-16 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center">
                                     <CheckCircle className="text-cyan-400" size={32} />
                                 </div>
-                                <h3 className="text-2xl font-bold text-white">
+                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                                     {t("successTitle")}
                                 </h3>
-                                <p className="text-neutral-400">{t("successSubtitle")}</p>
+                                <p className="text-gray-500 dark:text-neutral-400">
+                                    {t("successSubtitle")}
+                                </p>
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => setStatus("idle")}
-                                    className="mt-2 px-6 py-2.5 bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl text-neutral-300 text-sm transition-colors"
+                                    className="mt-2 px-6 py-2.5 bg-gray-100 dark:bg-neutral-800 hover:bg-gray-200 dark:hover:bg-neutral-700 border border-gray-300 dark:border-neutral-600 rounded-xl text-gray-600 dark:text-neutral-300 text-sm transition-colors"
                                 >
                                     {t("sendAnother")}
                                 </motion.button>
@@ -137,11 +139,24 @@ export default function ContactForm() {
                                 onSubmit={handleSubmit}
                                 className="relative z-10 space-y-5"
                             >
+                                {/* Honeypot — hidden from humans, bots fill it */}
+                                <input
+                                    type="text"
+                                    name="website"
+                                    value={honeypot}
+                                    onChange={(e) => setHoneypot(e.target.value)}
+                                    tabIndex={-1}
+                                    aria-hidden="true"
+                                    style={{ display: "none" }}
+                                />
                                 {/* Name + Email row */}
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                     <div>
-                                        <label className="flex items-center gap-2 text-sm text-neutral-300 mb-2 font-medium">
-                                            <User size={14} className="text-cyan-400" />
+                                        <label className="flex items-center gap-2 text-sm text-gray-600 dark:text-neutral-300 mb-2 font-medium">
+                                            <User
+                                                size={14}
+                                                className="text-cyan-600 dark:text-cyan-400"
+                                            />
                                             {t("labelName")}
                                         </label>
                                         <input
@@ -159,8 +174,11 @@ export default function ContactForm() {
                                         )}
                                     </div>
                                     <div>
-                                        <label className="flex items-center gap-2 text-sm text-neutral-300 mb-2 font-medium">
-                                            <Mail size={14} className="text-cyan-400" />
+                                        <label className="flex items-center gap-2 text-sm text-gray-600 dark:text-neutral-300 mb-2 font-medium">
+                                            <Mail
+                                                size={14}
+                                                className="text-cyan-600 dark:text-cyan-400"
+                                            />
                                             {t("labelEmail")}
                                         </label>
                                         <input
@@ -181,8 +199,11 @@ export default function ContactForm() {
 
                                 {/* Subject */}
                                 <div>
-                                    <label className="flex items-center gap-2 text-sm text-neutral-300 mb-2 font-medium">
-                                        <Tag size={14} className="text-cyan-400" />
+                                    <label className="flex items-center gap-2 text-sm text-gray-600 dark:text-neutral-300 mb-2 font-medium">
+                                        <Tag
+                                            size={14}
+                                            className="text-cyan-600 dark:text-cyan-400"
+                                        />
                                         {t("labelSubject")}
                                     </label>
                                     <input
@@ -202,8 +223,11 @@ export default function ContactForm() {
 
                                 {/* Message */}
                                 <div>
-                                    <label className="flex items-center gap-2 text-sm text-neutral-300 mb-2 font-medium">
-                                        <MessageSquare size={14} className="text-cyan-400" />
+                                    <label className="flex items-center gap-2 text-sm text-gray-600 dark:text-neutral-300 mb-2 font-medium">
+                                        <MessageSquare
+                                            size={14}
+                                            className="text-cyan-600 dark:text-cyan-400"
+                                        />
                                         {t("labelMessage")}
                                     </label>
                                     <textarea

@@ -52,22 +52,20 @@
             "Người Giải Quyết Vấn Đề"
         ],
         "aboutMe": {
-            "badge": "👤 Về Tôi",
             "title": "Tôi Là Ai?",
-            "bio1": "Xin chào! Tôi là Nguyễn Văn Sinh, một lập trình viên đam mê xây dựng các ứng dụng web hiện đại. Tôi thích tạo ra những sản phẩm không chỉ đẹp về giao diện mà còn mạnh mẽ về hiệu năng.",
-            "bio2": "Hiện tại tôi đang học hỏi và phát triển kỹ năng full-stack, với mong muốn trở thành một kỹ sư phần mềm chuyên nghiệp. Ngoài lập trình, tôi thích viết blog, đọc sách kỹ thuật và khám phá những công nghệ mới.",
-            "quote": "Code không chỉ là công việc — đó là cách tôi biến ý tưởng thành thực tế.",
+            "bio1": "Xin chào! Tôi là Nguyễn Văn Sinh, aka ShinCode, một lập trình viên đam mê xây dựng các ứng dụng web hiện đại. Tôi thích tạo ra những sản phẩm không chỉ đẹp về giao diện mà còn mạnh mẽ về hiệu năng.",
+            "bio2": "Hiện tại tôi đang học hỏi và phát triển kỹ năng full-stack, với mong muốn trở thành một kỹ sư phần mềm chuyên nghiệp. Ngoài lập trình, tôi thích viết blog, đọc sách kỹ thuật, khám phá những công nghệ mới, editor... chắc vậy.",
+            "quote": "Code không chỉ là công việc — đó là cách tôi biến ý tưởng thành thực tế. Tôi nghĩ thế 🤣!",
             "h1Label": "Năm kinh nghiệm",
-            "h1Value": "2+",
-            "h2Label": "Tách cà phê",
+            "h1Value": "3+",
+            "h2Label": "Cafein trong người",
             "h2Value": "∞",
             "h3Label": "Dự án đã làm",
-            "h3Value": "10+",
+            "h3Value": "∞",
             "h4Label": "Bài viết blog",
-            "h4Value": "20+"
+            "h4Value": "3+"
         },
         "skills": {
-            "badge": "🛠️ Kỹ Năng",
             "title": "Công Nghệ Sử Dụng",
             "categories": [
                 {
@@ -89,41 +87,46 @@
             ]
         },
         "experience": {
-            "badge": "💼 Kinh Nghiệm",
-            "title": "Lịch Sử Làm Việc",
+            "title": "Kinh Nghiệm Làm Việc",
             "currentLabel": "Hiện tại",
             "items": [
                 {
                     "role": "Front-End Developer",
                     "company": "Freelance",
-                    "period": "2024 – Hiện tại",
+                    "period": "2025 – Hiện tại",
                     "location": "Remote",
                     "description": "Xây dựng các ứng dụng web theo yêu cầu cho khách hàng, tập trung vào React và Next.js. Tối ưu hiệu suất và trải nghiệm người dùng.",
-                    "techs": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+                    "techs": [
+                        "React",
+                        "Next.js",
+                        "TypeScript",
+                        "JavaScript",
+                        "Tailwind CSS",
+                        "Figma"
+                    ],
                     "current": true
                 },
                 {
-                    "role": "Full-Stack Intern",
-                    "company": "Tech Startup",
-                    "period": "2023 – 2024",
-                    "location": "Hồ Chí Minh, VN",
-                    "description": "Tham gia phát triển tính năng cho ứng dụng quản lý nội bộ. Làm việc với Node.js backend và React frontend, tích hợp API bên thứ ba.",
-                    "techs": ["Node.js", "React", "MongoDB", "Express"],
-                    "current": false
+                    "role": "Front-End Developer",
+                    "company": "NETCO .,JSC",
+                    "period": "2023 – Hiện tại",
+                    "location": "TP Hồ Chí Minh, VN",
+                    "description": "Tham gia phát triển tính năng cho hệ thống ERP. Làm việc với C# backend và React frontend, SQL Server, tích hợp API bên thứ ba.",
+                    "techs": ["C#", "React", "SQL Server"],
+                    "current": true
                 },
                 {
                     "role": "Sinh Viên — Dự Án Tốt Nghiệp",
                     "company": "Đại Học",
-                    "period": "2022 – 2023",
-                    "location": "Lâm Đồng, VN",
-                    "description": "Phát triển hệ thống quản lý blog với Notion API, Next.js và Tailwind CSS. Tìm hiểu sâu về kiến trúc headless CMS và tối ưu SEO.",
-                    "techs": ["Next.js", "Notion API", "Tailwind CSS", "Vercel"],
+                    "period": "2020 – 2024",
+                    "location": "TP Hồ Chí Minh, VN",
+                    "description": "Xây đựng phần mềm lịch vạn niên (quản lý công việc, sự kiện, nhắc nhở,...) với Flutter, Next.js, Node.js và MySQL.",
+                    "techs": ["Flutter", "Next.js", "Node.js", "MySQL", "Vercel"],
                     "current": false
                 }
             ]
         },
         "contact": {
-            "badge": "✉️ Liên Hệ",
             "title": "Liên Hệ Với Tôi",
             "subtitle": "Có dự án thú vị? Muốn hợp tác? Hay chỉ muốn nói xin chào? — Cứ gửi tin nhắn cho tôi!",
             "labelName": "Họ & Tên",

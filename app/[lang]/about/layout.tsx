@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 }
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
-    return <div className="bg-neutral-950 text-white min-h-screen">{children}</div>
+    return <div className="bg-background text-foreground min-h-screen">{children}</div>
 }

@@ -26,17 +26,14 @@ export default function WorkExperience() {
 
     return (
         <section id="experience" className="py-24 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 via-neutral-900/30 to-neutral-950 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white/30 to-gray-50 dark:from-neutral-950 dark:via-neutral-900/30 dark:to-neutral-950 pointer-events-none" />
             <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section header */}
                 <motion.div {...fadeInUp()} className="text-center mb-16">
-                    <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full text-cyan-400">
-                        {t("badge")}
-                    </span>
-                    <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent">
+                    <h2 className="leading-16 text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-neutral-900 via-neutral-700 to-neutral-500 dark:from-white dark:via-neutral-200 dark:to-neutral-400 bg-clip-text text-transparent">
                         {t("title")}
                     </h2>
                     <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full" />
@@ -69,7 +66,7 @@ export default function WorkExperience() {
                                         <motion.div
                                             whileHover={{ y: -4 }}
                                             transition={{ type: "spring", stiffness: 300 }}
-                                            className="relative p-6 rounded-2xl bg-neutral-900/80 border border-neutral-700/60 backdrop-blur-sm hover:border-cyan-500/40 transition-colors duration-300"
+                                            className="relative p-6 rounded-2xl bg-white/80 dark:bg-neutral-900/80 border border-gray-200/60 dark:border-neutral-700/60 backdrop-blur-sm hover:border-cyan-500/40 transition-colors duration-300"
                                         >
                                             {item.current && (
                                                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 mb-3 text-xs font-medium bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400">
@@ -78,7 +75,7 @@ export default function WorkExperience() {
                                                 </span>
                                             )}
 
-                                            <h3 className="text-xl font-bold text-white mb-1">
+                                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
                                                 {item.role}
                                             </h3>
 
@@ -87,21 +84,21 @@ export default function WorkExperience() {
                                                     isLeft ? "sm:justify-end" : "sm:justify-start"
                                                 } justify-start`}
                                             >
-                                                <span className="flex items-center gap-1 text-sm text-purple-400 font-medium">
+                                                <span className="flex items-center gap-1 text-sm text-purple-600 dark:text-purple-400 font-medium">
                                                     <Briefcase size={13} />
                                                     {item.company}
                                                 </span>
-                                                <span className="flex items-center gap-1 text-sm text-neutral-400">
+                                                <span className="flex items-center gap-1 text-sm text-gray-500 dark:text-neutral-400">
                                                     <Calendar size={13} />
                                                     {item.period}
                                                 </span>
-                                                <span className="flex items-center gap-1 text-sm text-neutral-400">
+                                                <span className="flex items-center gap-1 text-sm text-gray-500 dark:text-neutral-400">
                                                     <MapPin size={13} />
                                                     {item.location}
                                                 </span>
                                             </div>
 
-                                            <p className="text-neutral-400 text-sm leading-relaxed mb-4">
+                                            <p className="text-gray-500 dark:text-neutral-400 text-sm leading-relaxed mb-4">
                                                 {item.description}
                                             </p>
 
@@ -114,7 +111,7 @@ export default function WorkExperience() {
                                                 {item.techs.map((tech) => (
                                                     <span
                                                         key={tech}
-                                                        className="px-2.5 py-1 text-xs rounded-lg bg-neutral-800 border border-neutral-700 text-neutral-300 hover:border-cyan-500/50 hover:text-cyan-400 transition-colors"
+                                                        className="px-2.5 py-1 text-xs rounded-lg bg-gray-100 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 text-gray-600 dark:text-neutral-300 hover:border-cyan-500/50 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                                                     >
                                                         {tech}
                                                     </span>
@@ -136,7 +133,7 @@ export default function WorkExperience() {
                                             className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${
                                                 item.current
                                                     ? "bg-cyan-500/20 border-cyan-500"
-                                                    : "bg-neutral-900 border-neutral-600"
+                                                    : "bg-white dark:bg-neutral-900 border-gray-400 dark:border-neutral-600"
                                             }`}
                                         >
                                             <CheckCircle
@@ -144,7 +141,7 @@ export default function WorkExperience() {
                                                 className={
                                                     item.current
                                                         ? "text-cyan-400"
-                                                        : "text-neutral-500"
+                                                        : "text-gray-400 dark:text-neutral-500"
                                                 }
                                             />
                                         </motion.div>
