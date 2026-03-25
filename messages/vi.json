@@ -36,7 +36,21 @@
         "techStack": "Công Nghệ Sử Dụng",
         "getInTouch": "Liên Hệ",
         "getInTouchText": "Liên hệ qua",
-        "getInTouchOr": "hoặc"
+        "getInTouchOr": "hoặc",
+        "openToOpportunities": "✨ Nếu bạn muốn nó - hãy làm nó! ✨",
+        "basedIn": "Quê ở",
+        "location": "Lâm Đồng, Việt Nam",
+        "bio": "Đam mê lập trình, xây dựng những thứ kỳ lạ nhưng thú vị, khám phá mọi thứ khi có thể — đang trên con đường trở thành full-stack developer.",
+        "getInTouchBtn": "Liên Hệ Ngay",
+        "viewProjects": "Xem Dự Án",
+        "hiIm": "Xin Chào, Tên Tui Là",
+        "roles": [
+            "Lập Trình Viên Front-End",
+            "Lập Trình Viên Back-End",
+            "Nhà Khoa Học Dữ Liệu",
+            "Người Viết Blog",
+            "Người Giải Quyết Vấn Đề"
+        ]
     },
     "footer": {
         "rights": "Bảo lưu mọi quyền."

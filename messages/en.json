@@ -36,7 +36,21 @@
         "techStack": "Tech Stack",
         "getInTouch": "Get in Touch",
         "getInTouchText": "Feel free to reach out via",
-        "getInTouchOr": "or"
+        "getInTouchOr": "or",
+        "openToOpportunities": "✨ If you know - you know! ✨",
+        "basedIn": "Based in",
+        "location": "Lam Dong, Vietnam",
+        "bio": "Passionate about coding, building weird but fun things, exploring everything when I can — on my way to becoming a full-stack developer.",
+        "getInTouchBtn": "Get In Touch",
+        "viewProjects": "View Projects",
+        "hiIm": "Hi, I'm",
+        "roles": [
+            "Front-End Developer",
+            "Back-End Developer",
+            "Data Scientist",
+            "Blogger",
+            "Problem Solver"
+        ]
     },
     "footer": {
         "rights": "All rights reserved."
