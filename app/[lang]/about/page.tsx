@@ -6,6 +6,9 @@ import DisplayName from "@/components/about/DisplayName"
 import CurrentRole from "@/components/about/CurrentRole"
 import { Skills } from "@/components/about/Skill"
 import FloatingBlob from "@/components/about/FloatingBlob"
+import AboutMe from "@/components/about/AboutMe"
+import WorkExperience from "@/components/about/WorkExperience"
+import ContactForm from "@/components/about/ContactForm"
 
 export default function AboutPage() {
     const t = useTranslations("about")
@@ -166,6 +169,11 @@ export default function AboutPage() {
                     </motion.div>
                 </div>
             </section>
+
+            <AboutMe />
+            <Skills />
+            <WorkExperience />
+            <ContactForm />
         </>
     )
 }

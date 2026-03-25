@@ -50,7 +50,99 @@
             "Data Scientist",
             "Blogger",
             "Problem Solver"
-        ]
+        ],
+        "aboutMe": {
+            "badge": "👤 About Me",
+            "title": "Who Am I?",
+            "bio1": "Hey! I'm Nguyen Van Sinh, a developer passionate about building modern web applications. I love creating products that are not only visually appealing but also performant and robust.",
+            "bio2": "I'm currently honing my full-stack skills, with a goal of becoming a professional software engineer. Outside of coding, I enjoy writing blog posts, reading tech books, and exploring new technologies.",
+            "quote": "Code is not just work — it's how I turn ideas into reality.",
+            "h1Label": "Years of experience",
+            "h1Value": "2+",
+            "h2Label": "Cups of coffee",
+            "h2Value": "∞",
+            "h3Label": "Projects built",
+            "h3Value": "10+",
+            "h4Label": "Blog articles",
+            "h4Value": "20+"
+        },
+        "skills": {
+            "badge": "🛠️ Skills",
+            "title": "Tech Stack",
+            "categories": [
+                {
+                    "name": "Frontend",
+                    "items": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
+                },
+                {
+                    "name": "Backend",
+                    "items": ["Node.js", "Express", "NestJS", "REST API", "GraphQL"]
+                },
+                {
+                    "name": "Database",
+                    "items": ["PostgreSQL", "MongoDB", "Redis", "Prisma", "Supabase"]
+                },
+                {
+                    "name": "Tools & DevOps",
+                    "items": ["Git", "Docker", "Vercel", "GitHub Actions", "Linux"]
+                }
+            ]
+        },
+        "experience": {
+            "badge": "💼 Experience",
+            "title": "Work History",
+            "currentLabel": "Current",
+            "items": [
+                {
+                    "role": "Front-End Developer",
+                    "company": "Freelance",
+                    "period": "2024 – Present",
+                    "location": "Remote",
+                    "description": "Building custom web applications for clients, focusing on React and Next.js. Optimizing performance and user experience.",
+                    "techs": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+                    "current": true
+                },
+                {
+                    "role": "Full-Stack Intern",
+                    "company": "Tech Startup",
+                    "period": "2023 – 2024",
+                    "location": "Ho Chi Minh City, VN",
+                    "description": "Contributed to feature development for an internal management application. Worked with a Node.js backend and React frontend, integrating third-party APIs.",
+                    "techs": ["Node.js", "React", "MongoDB", "Express"],
+                    "current": false
+                },
+                {
+                    "role": "Student — Graduation Project",
+                    "company": "University",
+                    "period": "2022 – 2023",
+                    "location": "Lam Dong, VN",
+                    "description": "Built a blog management system with the Notion API, Next.js, and Tailwind CSS. Explored headless CMS architecture and SEO optimization.",
+                    "techs": ["Next.js", "Notion API", "Tailwind CSS", "Vercel"],
+                    "current": false
+                }
+            ]
+        },
+        "contact": {
+            "badge": "✉️ Contact",
+            "title": "Get In Touch",
+            "subtitle": "Got an interesting project? Want to collaborate? Or just want to say hello? — Send me a message!",
+            "labelName": "Full Name",
+            "placeholderName": "John Doe",
+            "labelEmail": "Email",
+            "placeholderEmail": "example@email.com",
+            "labelSubject": "Subject",
+            "placeholderSubject": "What would you like to talk about?",
+            "labelMessage": "Message",
+            "placeholderMessage": "Hey Sinh! I'd like to...",
+            "submit": "Send Message",
+            "sending": "Sending...",
+            "successTitle": "Message sent! 🎉",
+            "successSubtitle": "Thanks for reaching out. I'll get back to you as soon as possible.",
+            "sendAnother": "Send another message",
+            "errorRequired": "This field is required",
+            "errorEmail": "Invalid email address",
+            "errorSend": "Something went wrong. Please try again later."
+        }
     },
     "footer": {
         "rights": "All rights reserved."

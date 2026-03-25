@@ -50,7 +50,99 @@
             "Nhà Khoa Học Dữ Liệu",
             "Người Viết Blog",
             "Người Giải Quyết Vấn Đề"
-        ]
+        ],
+        "aboutMe": {
+            "badge": "👤 Về Tôi",
+            "title": "Tôi Là Ai?",
+            "bio1": "Xin chào! Tôi là Nguyễn Văn Sinh, một lập trình viên đam mê xây dựng các ứng dụng web hiện đại. Tôi thích tạo ra những sản phẩm không chỉ đẹp về giao diện mà còn mạnh mẽ về hiệu năng.",
+            "bio2": "Hiện tại tôi đang học hỏi và phát triển kỹ năng full-stack, với mong muốn trở thành một kỹ sư phần mềm chuyên nghiệp. Ngoài lập trình, tôi thích viết blog, đọc sách kỹ thuật và khám phá những công nghệ mới.",
+            "quote": "Code không chỉ là công việc — đó là cách tôi biến ý tưởng thành thực tế.",
+            "h1Label": "Năm kinh nghiệm",
+            "h1Value": "2+",
+            "h2Label": "Tách cà phê",
+            "h2Value": "∞",
+            "h3Label": "Dự án đã làm",
+            "h3Value": "10+",
+            "h4Label": "Bài viết blog",
+            "h4Value": "20+"
+        },
+        "skills": {
+            "badge": "🛠️ Kỹ Năng",
+            "title": "Công Nghệ Sử Dụng",
+            "categories": [
+                {
+                    "name": "Frontend",
+                    "items": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
+                },
+                {
+                    "name": "Backend",
+                    "items": ["Node.js", "Express", "NestJS", "REST API", "GraphQL"]
+                },
+                {
+                    "name": "Database",
+                    "items": ["PostgreSQL", "MongoDB", "Redis", "Prisma", "Supabase"]
+                },
+                {
+                    "name": "Tools & DevOps",
+                    "items": ["Git", "Docker", "Vercel", "GitHub Actions", "Linux"]
+                }
+            ]
+        },
+        "experience": {
+            "badge": "💼 Kinh Nghiệm",
+            "title": "Lịch Sử Làm Việc",
+            "currentLabel": "Hiện tại",
+            "items": [
+                {
+                    "role": "Front-End Developer",
+                    "company": "Freelance",
+                    "period": "2024 – Hiện tại",
+                    "location": "Remote",
+                    "description": "Xây dựng các ứng dụng web theo yêu cầu cho khách hàng, tập trung vào React và Next.js. Tối ưu hiệu suất và trải nghiệm người dùng.",
+                    "techs": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+                    "current": true
+                },
+                {
+                    "role": "Full-Stack Intern",
+                    "company": "Tech Startup",
+                    "period": "2023 – 2024",
+                    "location": "Hồ Chí Minh, VN",
+                    "description": "Tham gia phát triển tính năng cho ứng dụng quản lý nội bộ. Làm việc với Node.js backend và React frontend, tích hợp API bên thứ ba.",
+                    "techs": ["Node.js", "React", "MongoDB", "Express"],
+                    "current": false
+                },
+                {
+                    "role": "Sinh Viên — Dự Án Tốt Nghiệp",
+                    "company": "Đại Học",
+                    "period": "2022 – 2023",
+                    "location": "Lâm Đồng, VN",
+                    "description": "Phát triển hệ thống quản lý blog với Notion API, Next.js và Tailwind CSS. Tìm hiểu sâu về kiến trúc headless CMS và tối ưu SEO.",
+                    "techs": ["Next.js", "Notion API", "Tailwind CSS", "Vercel"],
+                    "current": false
+                }
+            ]
+        },
+        "contact": {
+            "badge": "✉️ Liên Hệ",
+            "title": "Liên Hệ Với Tôi",
+            "subtitle": "Có dự án thú vị? Muốn hợp tác? Hay chỉ muốn nói xin chào? — Cứ gửi tin nhắn cho tôi!",
+            "labelName": "Họ & Tên",
+            "placeholderName": "Nguyễn Văn A",
+            "labelEmail": "Email",
+            "placeholderEmail": "example@email.com",
+            "labelSubject": "Tiêu Đề",
+            "placeholderSubject": "Bạn muốn nói về điều gì?",
+            "labelMessage": "Nội Dung",
+            "placeholderMessage": "Xin chào Sinh! Tôi muốn...",
+            "submit": "Gửi Tin Nhắn",
+            "sending": "Đang gửi...",
+            "successTitle": "Đã gửi thành công! 🎉",
+            "successSubtitle": "Cảm ơn bạn đã liên hệ. Tôi sẽ phản hồi sớm nhất có thể.",
+            "sendAnother": "Gửi tin nhắn khác",
+            "errorRequired": "Trường này là bắt buộc",
+            "errorEmail": "Email không hợp lệ",
+            "errorSend": "Có lỗi xảy ra. Vui lòng thử lại sau."
+        }
     },
     "footer": {
         "rights": "Bảo lưu mọi quyền."
