@@ -1,14 +1,11 @@
 "use client"
-// import AboutContent from "@/components/AboutContent"
 import { motion } from "framer-motion"
-import { ChevronDown, Github, Linkedin, Mail, Instagram, MapPin } from "lucide-react"
+import { Github, Mail, Instagram, MapPin, Facebook } from "lucide-react"
 import DisplayName from "@/components/about/DisplayName"
 import CurrentRole from "@/components/about/CurrentRole"
 import { Skills } from "@/components/about/Skill"
 
 export default function AboutPage() {
-    // return <AboutContent />
-
     return (
         <>
             <section
@@ -83,13 +80,37 @@ export default function AboutPage() {
                                 <MapPin className="text-cyan-400" size={20} />
                             </motion.div>
                             <span className="text-neutral-300 text-lg">
-                                <span className="text-cyan-400">Based in</span> Bangalore, India
+                                <span className="text-cyan-400">Based in</span> Lam Dong, Vietnam
                             </span>
+                            <motion.div
+                                animate={{
+                                    scale: [1, 1.2, 1],
+                                    rotate: [0, 5, -5, 0],
+                                }}
+                                transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 64 64"
+                                    width="24"
+                                    height="24"
+                                    style={{ opacity: 1 }}
+                                >
+                                    <path
+                                        fill="#ec1c24"
+                                        d="M64 44c0 6.075-3.373 11-10 11H10C3.373 55 0 50.075 0 44V22c0-6.075 3.373-11 10-11h44c6.627 0 10 4.925 10 11z"
+                                    />
+                                    <path
+                                        fill="#f9cb38"
+                                        d="m45.43 28.963l-9.997.015l-3.103-10.114l-3.08 10.114l-10.01-.015l8.106 6.157l-3.14 10.05l8.13-6.241l8.147 6.241l-3.147-10.05z"
+                                    />
+                                </svg>
+                            </motion.div>
                         </motion.div>
 
                         <p className="text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto mb-12">
-                            Passionate about building intelligent systems that solve real-world
-                            problems. Currently exploring deep learning.
+                            Passionate about coding, building weird but fun things, exploring
+                            everything when I can — on my way to becoming a full-stack developer.
                         </p>
 
                         <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -113,7 +134,7 @@ export default function AboutPage() {
 
                         <div className="flex justify-center gap-6">
                             <motion.a
-                                href="https://github.com/saicharan197"
+                                href="https://github.com/CuSinhVip0"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.2, color: "#06b6d4" }}
@@ -122,16 +143,7 @@ export default function AboutPage() {
                                 <Github size={28} />
                             </motion.a>
                             <motion.a
-                                href="https://linkedin.com/in/saicharan-ai-ml"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                whileHover={{ scale: 1.2, color: "#06b6d4" }}
-                                className="text-neutral-400"
-                            >
-                                <Linkedin size={28} />
-                            </motion.a>
-                            <motion.a
-                                href="https://instagram.com/sai_charan_t_n"
+                                href="https://www.instagram.com/cusinhnv/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.2, color: "#06b6d4" }}
@@ -140,7 +152,16 @@ export default function AboutPage() {
                                 <Instagram size={28} />
                             </motion.a>
                             <motion.a
-                                href="https://mail.google.com/mail/?view=cm&fs=1&to=saicharan10161@gmail.com"
+                                href="https://www.facebook.com/sinh280902"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.2, color: "#06b6d4" }}
+                                className="text-neutral-400"
+                            >
+                                <Facebook size={28} />
+                            </motion.a>
+                            <motion.a
+                                href="mailto:sinhnguyen2k2@gmail.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.2, color: "#06b6d4" }}
@@ -149,14 +170,6 @@ export default function AboutPage() {
                                 <Mail size={28} />
                             </motion.a>
                         </div>
-                    </motion.div>
-
-                    <motion.div
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-                    >
-                        <ChevronDown className="text-neutral-600" size={32} />
                     </motion.div>
                 </div>
             </section>

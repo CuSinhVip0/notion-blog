@@ -2,7 +2,13 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 export default function CurrentRole() {
-    const roles = ["AI Engineer", "ML Developer", "Data Scientist", "Problem Solver"]
+    const roles = [
+        "Front-End Developer",
+        "Back-End Developer",
+        "Data Scientist",
+        "Blogger",
+        "Problem Solver",
+    ]
     const [currentRole, setCurrentRole] = useState<number>(0)
 
     useEffect(() => {

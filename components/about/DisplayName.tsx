@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 
 export default function DisplayName() {
-    const nameText = "Cu Sinh Dep Trai"
+    const nameText = "Cu Sinh DZai Top 1"
     const [displayedName, setDisplayedName] = useState("")
     const [nameIndex, setNameIndex] = useState(0)
     const [isDeleting, setIsDeleting] = useState(false)
@@ -19,6 +19,7 @@ export default function DisplayName() {
                 }, 100)
                 return () => clearTimeout(timeout)
             } else if (!isDeleting && nameIndex === nameText.length) {
+                // eslint-disable-next-line react-hooks/set-state-in-effect
                 setTypingComplete(true)
             }
         }
@@ -39,7 +40,7 @@ export default function DisplayName() {
                 >
                     Hi, I&apos;m{" "}
                 </motion.span>
-                <span className="relative inline-block">
+                <span className="relative block">
                     <motion.span
                         className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
                         initial={{ backgroundSize: "0% 100%" }}
