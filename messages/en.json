@@ -52,7 +52,117 @@
         "techStack": "Tech Stack",
         "getInTouch": "Get in Touch",
         "getInTouchText": "Feel free to reach out via",
-        "getInTouchOr": "or"
+        "getInTouchOr": "or",
+        "openToOpportunities": "✨ If you know - you know! ✨",
+        "basedIn": "Based in",
+        "location": "Lam Dong, Vietnam",
+        "bio": "Passionate about coding, building weird but fun things, exploring everything when I can — on my way to becoming a full-stack developer.",
+        "getInTouchBtn": "Get In Touch",
+        "viewProjects": "View Projects",
+        "hiIm": "Hi, I'm",
+        "roles": [
+            "Front-End Developer",
+            "Back-End Developer",
+            "Data Scientist",
+            "Blogger",
+            "Problem Solver"
+        ],
+        "aboutMe": {
+            "title": "Who Am I?",
+            "bio1": "Hey! I'm Nguyen Van Sinh, aka ShinCode, a developer passionate about building modern web applications. I love creating products that are not only visually appealing but also performant and robust.",
+            "bio2": "I'm currently honing my full-stack skills, with a goal of becoming a professional software engineer. Outside of coding, I enjoy writing blog posts, reading tech books, exploring new technologies, editor... I think so.",
+            "quote": "Code is not just work — it's how I turn ideas into reality. I think 🤣!",
+            "h1Label": "Years of experience",
+            "h1Value": "3+",
+            "h2Label": "Cups of coffee",
+            "h2Value": "∞",
+            "h3Label": "Projects built",
+            "h3Value": "∞",
+            "h4Label": "Blog articles",
+            "h4Value": "3+"
+        },
+        "skills": {
+            "title": "Tech Stack",
+            "categories": [
+                {
+                    "name": "Frontend",
+                    "items": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
+                },
+                {
+                    "name": "Backend",
+                    "items": ["Node.js", "Express", "NestJS", "REST API", "GraphQL"]
+                },
+                {
+                    "name": "Database",
+                    "items": ["PostgreSQL", "MongoDB", "Redis", "Prisma", "Supabase"]
+                },
+                {
+                    "name": "Tools & DevOps",
+                    "items": ["Git", "Docker", "Vercel", "GitHub Actions", "Linux"]
+                }
+            ]
+        },
+        "experience": {
+            "badge": "💼 Experience",
+            "title": "Work Experience",
+            "currentLabel": "Current",
+            "items": [
+                {
+                    "role": "Front-End Developer",
+                    "company": "Freelance",
+                    "period": "2025 – Present",
+                    "location": "Remote",
+                    "description": "Building custom web applications for clients, focusing on React and Next.js. Optimizing performance and user experience.",
+                    "techs": [
+                        "React",
+                        "Next.js",
+                        "TypeScript",
+                        "JavaScript",
+                        "Tailwind CSS",
+                        "Figma"
+                    ],
+                    "current": true
+                },
+                {
+                    "role": "Front-End Developer",
+                    "company": "NETCO .,JSC",
+                    "period": "2023 – Present",
+                    "location": "Ho Chi Minh City, VN",
+                    "description": "Contributing to feature development for an ERP system. Working with C# backend and React frontend, SQL Server, integrating third-party APIs.",
+                    "techs": ["C#", "React", "SQL Server"],
+                    "current": true
+                },
+                {
+                    "role": "Student — Graduation Project",
+                    "company": "University",
+                    "period": "2020 – 2024",
+                    "location": "Ho Chi Minh City, VN",
+                    "description": "Built a perpetual calendar software (task management, events, reminders,...) with Flutter, Next.js, Node.js and MySQL.",
+                    "techs": ["Flutter", "Next.js", "Node.js", "MySQL", "Vercel"],
+                    "current": false
+                }
+            ]
+        },
+        "contact": {
+            "title": "Get In Touch",
+            "subtitle": "Got an interesting project? Want to collaborate? Or just want to say hello? — Send me a message!",
+            "labelName": "Full Name",
+            "placeholderName": "John Doe",
+            "labelEmail": "Email",
+            "placeholderEmail": "example@email.com",
+            "labelSubject": "Subject",
+            "placeholderSubject": "What would you like to talk about?",
+            "labelMessage": "Message",
+            "placeholderMessage": "Hey Sinh! I'd like to...",
+            "submit": "Send Message",
+            "sending": "Sending...",
+            "successTitle": "Message sent! 🎉",
+            "successSubtitle": "Thanks for reaching out. I'll get back to you as soon as possible.",
+            "sendAnother": "Send another message",
+            "errorRequired": "This field is required",
+            "errorEmail": "Invalid email address",
+            "errorSend": "Something went wrong. Please try again later."
+        }
     },
     "footer": {
         "rights": "All rights reserved."

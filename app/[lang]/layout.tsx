@@ -45,6 +45,7 @@ export default async function RootLayout({
 }) {
     const { lang } = await params
     setRequestLocale(lang)
+    setRequestLocale(lang)
 
     return (
         <html lang={lang} className={inter.variable} suppressHydrationWarning>
