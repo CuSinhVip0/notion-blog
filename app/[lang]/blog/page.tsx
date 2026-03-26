@@ -7,7 +7,7 @@ export const revalidate = 60
 
 export const metadata: Metadata = {
     title: "Blog",
-    description: "Browse all articles on technology, design, and more.",
+    description: "Tất cả các bài viết về công nghệ, thiết kế và nhiều hơn nữa.",
 }
 
 export default async function BlogPage() {

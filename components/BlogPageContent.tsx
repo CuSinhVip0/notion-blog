@@ -14,7 +14,7 @@ export default function BlogPageContent({ posts, error, allTags }: BlogPageConte
     const t = useTranslations()
 
     return (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-20 pb-12">
             {/* Header */}
             <div className="mb-10">
                 <h1 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white mb-3 tracking-tight">

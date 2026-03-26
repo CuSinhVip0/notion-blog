@@ -142,3 +142,8 @@ body {
 .notion-content-wrapper .notion-page-content {
     padding: 0;
 }
+
+#cusdis_thread iframe {
+    min-height: 428px;
+    height: 100%;
+}

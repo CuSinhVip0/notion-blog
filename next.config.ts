@@ -21,9 +21,13 @@ const nextConfig: NextConfig = {
             { protocol: "https", hostname: "notion.so" },
             // Notion static files
             { protocol: "https", hostname: "**.notion-static.com" },
+            // Supabase storage
+            { protocol: "https", hostname: "**.supabase.co" },
             // Stock photos
             { protocol: "https", hostname: "images.unsplash.com" },
             { protocol: "https", hostname: "**.pexels.com" },
+            // Picsum photos
+            { protocol: "https", hostname: "picsum.photos" },
         ],
         formats: ["image/avif", "image/webp"],
         dangerouslyAllowSVG: true,

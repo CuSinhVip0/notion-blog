@@ -9,9 +9,6 @@ const notion = new Client({
     auth: process.env.NOTION_API_KEY,
 })
 
-// Unofficial Notion client used by react-notion-x (uses internal Notion API)
-// NOTION_TOKEN_V2 is optional – only needed for private pages
-// (copy token_v2 from notion.so cookies if required)
 const notionApi = new NotionAPI({
     authToken: process.env.NOTION_TOKEN_V2,
 })
@@ -41,6 +38,17 @@ function estimateReadingTime(text: string): number {
     return Math.max(1, Math.ceil(words / wordsPerMinute))
 }
 
+function getRecordMapText(recordMap: ExtendedRecordMap): string {
+    return Object.values(recordMap.block)
+        .flatMap((b) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const block = b as any
+            const title = block?.value?.properties?.title as [string, ...unknown[]][] | undefined
+            return title ? title.map(([t]) => String(t)) : []
+        })
+        .join(" ")
+}
+
 function extractPlainText(richTexts: Array<{ plain_text: string }>): string {
     return richTexts.map((t) => t.plain_text).join("")
 }
@@ -55,10 +63,10 @@ function mapPageToBlogPost(page: PageObjectResponse): BlogPost {
     const statusProp = props["Status"]
     const publishedAtProp = props["PublishedAt"]
     const authorProp = props["Author"]
-    const thumbnailProp = props["Thumbnail"]
+    const urlProp = props["URL"]
 
     const title = titleProp?.type === "title" ? extractPlainText(titleProp.title) : ""
-
+    const url = urlProp?.type === "url" ? (urlProp.url ?? null) : null
     const slugRaw = slugProp?.type === "rich_text" ? extractPlainText(slugProp.rich_text) : ""
     const slug =
         slugRaw ||
@@ -71,13 +79,6 @@ function mapPageToBlogPost(page: PageObjectResponse): BlogPost {
 
     const tags: string[] =
         tagsProp?.type === "multi_select" ? tagsProp.multi_select.map((t) => t.name) : []
-
-    const coverImage =
-        page.cover?.type === "external"
-            ? page.cover.external.url
-            : page.cover?.type === "file"
-              ? page.cover.file.url
-              : null
 
     const publishedAt =
         publishedAtProp?.type === "date"
@@ -92,28 +93,18 @@ function mapPageToBlogPost(page: PageObjectResponse): BlogPost {
     const status =
         statusProp?.type === "select" ? (statusProp.select?.name ?? "Published") : "Published"
 
-    const thumbnail =
-        thumbnailProp?.type === "files" && thumbnailProp.files.length > 0
-            ? thumbnailProp.files[0].type === "file"
-                ? thumbnailProp.files[0].file.url
-                : thumbnailProp.files[0].type === "external"
-                  ? thumbnailProp.files[0].external.url
-                  : null
-            : null
-
     return {
         id: page.id,
         title,
         slug,
         description,
-        coverImage,
-        thumbnail,
         tags,
         publishedAt,
         updatedAt,
         status: status as "Published" | "Draft",
         author,
         readingTime: 5,
+        url: url,
     }
 }
 
@@ -127,9 +118,11 @@ export async function getAllPosts(): Promise<BlogPost[]> {
         sorts: [{ property: "PublishedAt", direction: "descending" }],
     })
 
-    return response.results
+    const posts = response.results
         .filter((p): p is PageObjectResponse => p.object === "page" && "properties" in p)
         .map(mapPageToBlogPost)
+
+    return posts
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPostDetail | null> {
@@ -150,15 +143,6 @@ export async function getPostBySlug(slug: string): Promise<BlogPostDetail | null
     const page = pages[0]
     const post = mapPageToBlogPost(page)
 
-    // Notion v5 native markdown retrieval
-    const markdownResponse = await notion.pages.retrieveMarkdown({
-        page_id: page.id,
-    })
-    const content = normalizeNotionMarkdown(markdownResponse.markdown ?? "")
-
-    // react-notion-x record map via unofficial API
-    // page.id from official API is in format "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    // notion-client expects id without dashes
     let recordMap: object | undefined
     try {
         const rawId = page.id.replace(/-/g, "")
@@ -168,10 +152,13 @@ export async function getPostBySlug(slug: string): Promise<BlogPostDetail | null
         recordMap = undefined
     }
 
+    const readingTime = recordMap
+        ? estimateReadingTime(getRecordMapText(recordMap as ExtendedRecordMap))
+        : 5
+
     return {
         ...post,
-        content,
-        readingTime: estimateReadingTime(content),
+        readingTime,
         recordMap,
     }
 }

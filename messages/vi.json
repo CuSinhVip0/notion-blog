@@ -28,6 +28,22 @@
         "backHome": "Về Trang Chủ"
     },
     "backToBlog": "Quay Lại Blog",
+    "comments": {
+        "title": "🗨️  Bình luận",
+        "moderationNotice": "Hiện tại bình luận cần phải được phê duyệt mới xuất hiện công khai, vui lòng chờ trong giây lát!",
+        "powered_by": "Bình luận được hỗ trợ bởi Cusdis",
+        "post_comment": "Bình luận",
+        "loading": "Đang tải",
+        "email": "Email (tùy chọn)",
+        "nickname": "Tên hiển thị",
+        "reply_placeholder": "Trả lời...",
+        "reply_btn": "Trả lời",
+        "sending": "Đang gửi...",
+        "mod_badge": "MOD",
+        "content_is_required": "Nội dung là bắt buộc",
+        "nickname_is_required": "Tên hiển thị là bắt buộc",
+        "comment_has_been_sent": "Bình luận của bạn đã được gửi. Vui lòng chờ phê duyệt."
+    },
     "about": {
         "title": "Về Tôi",
         "subtitle": "Lập trình viên, người viết, con người tò mò.",

@@ -19,7 +19,7 @@ export default function HomePageContent({ posts, error, allTags }: HomePageConte
     const featuredPost = posts[0]
 
     return (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-20 pb-12">
             {/* Hero */}
             <section className="mb-16 text-center ">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-medium mb-5">

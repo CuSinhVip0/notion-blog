@@ -7,6 +7,7 @@ import { formatDate } from "@/lib/utils"
 import BlogContent from "./BlogContent"
 import { motion } from "framer-motion"
 import { useTranslations } from "next-intl"
+import { coverImageCache } from "@/config/init"
 interface PostHeaderProps {
     post: BlogPostDetail
 }
@@ -93,7 +94,7 @@ export default function PostHeader({ post }: PostHeaderProps) {
             </motion.div>
 
             {/* Cover Image */}
-            {(post.thumbnail || post.coverImage) && (
+            {(post.url || coverImageCache) && (
                 <motion.div
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -101,7 +102,7 @@ export default function PostHeader({ post }: PostHeaderProps) {
                     className="relative w-full h-64 sm:h-96 rounded-2xl overflow-hidden mb-10 bg-zinc-100 dark:bg-zinc-800"
                 >
                     <Image
-                        src={post.thumbnail ?? post.coverImage!}
+                        src={post.url ?? coverImageCache!}
                         alt={post.title}
                         fill
                         className="object-cover"

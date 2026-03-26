@@ -2,7 +2,10 @@ import { getPostBySlug, getAllSlugs } from "@/lib/notion"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import PostHeader from "@/components/PostHeader"
-import { cache, use } from "react"
+import { cache } from "react"
+import BlogContent from "@/components/BlogContent"
+import Comments from "@/components/Comments"
+import { headers } from "next/headers"
 
 export const revalidate = 60
 
@@ -40,15 +43,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                 modifiedTime: post.updatedAt,
                 authors: [post.author],
                 tags: post.tags,
-                images: post.coverImage
-                    ? [{ url: post.coverImage, width: 1200, height: 630, alt: post.title }]
+                images: post.url
+                    ? [{ url: post.url, width: 1200, height: 630, alt: post.title }]
                     : [],
             },
             twitter: {
                 card: "summary_large_image",
                 title: post.title,
                 description: post.description,
-                images: post.coverImage ? [post.coverImage] : [],
+                images: post.url ? [post.url] : [],
             },
         }
     } catch {
@@ -57,7 +60,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-    const { slug } = await params
+    const { slug, lang } = await params
 
     let post
 
@@ -69,9 +72,16 @@ export default async function BlogPostPage({ params }: Props) {
 
     if (!post) notFound()
 
+    const headersList = await headers()
+    const host = headersList.get("host") ?? "localhost:3000"
+    const protocol = process.env.NODE_ENV === "production" ? "https" : "http"
+    const pageUrl = `${protocol}://${host}/${lang}/blog/${slug}`
+
     return (
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-20 pb-12">
             <PostHeader post={post} />
+            <BlogContent recordMap={post.recordMap} />
+            <Comments pageId={slug} pageTitle={post.title} pageUrl={pageUrl} />
         </div>
     )
 }

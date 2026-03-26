@@ -5,6 +5,7 @@ import { Calendar, Clock, ArrowRight } from "lucide-react"
 import { BlogPost } from "@/lib/types"
 import { formatDate } from "@/lib/utils"
 import { useTranslations } from "next-intl"
+import { coverImageCache } from "@/config/init"
 
 interface BlogCardProps {
     post: BlogPost
@@ -22,12 +23,13 @@ export default function BlogCard({ post, index = 0 }: BlogCardProps) {
             <Link href={`/blog/${post.slug}`} className="group block h-full">
                 <div className="h-full rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden hover:border-indigo-300 dark:hover:border-indigo-700 hover:shadow-lg hover:shadow-indigo-100/50 dark:hover:shadow-indigo-900/20 transition-all duration-300">
                     {/* Cover image */}
-                    {(post.thumbnail || post.coverImage) && (
+                    {post.url && (
                         <div className="relative h-48 w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                             <Image
-                                src={post.thumbnail ?? post.coverImage!}
+                                src={post.url ?? coverImageCache!}
                                 alt={post.title}
                                 fill
+                                loading="eager"
                                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
