@@ -8,6 +8,7 @@ import "@/styles/notion.css"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 import { type ExtendedRecordMap } from "notion-types"
+import { useTheme } from "next-themes"
 
 const Code = dynamic(() =>
     import("react-notion-x/build/third-party/code").then(async (m) => {
@@ -98,12 +99,14 @@ interface BlogContentProps {
 }
 
 export default function BlogContent({ recordMap }: BlogContentProps) {
+    const { resolvedTheme } = useTheme()
+
     return (
         <div className="notion-content-wrapper">
             <NotionRenderer
                 recordMap={recordMap}
                 fullPage={false}
-                darkMode={false}
+                darkMode={resolvedTheme === "dark"}
                 previewImages={!!recordMap.preview_images}
                 disableHeader={true}
                 components={{
