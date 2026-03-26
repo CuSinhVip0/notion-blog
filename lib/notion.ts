@@ -15,23 +15,6 @@ const notionApi = new NotionAPI({
 
 const DATABASE_ID = process.env.NOTION_DATABASE_ID!
 
-function normalizeNotionMarkdown(md: string): string {
-    return (
-        md
-            // Normalize line endings
-            .replace(/\r\n/g, "\n")
-            .replace(/\r/g, "\n")
-            // Notion sometimes over-escapes asterisks inside table cells (\*\* → **)
-            .replace(/\\\*/g, "*")
-            // Notion sometimes over-escapes underscores (\_text\_ → _text_)
-            .replace(/\\_/g, "_")
-            // Ensure blank line before ATX headings so they're not merged into prev paragraph
-            .replace(/([^\n])\n(#{1,6} )/g, "$1\n\n$2")
-            // Ensure blank line before table rows
-            .replace(/([^\n])\n(\|)/g, "$1\n\n$2")
-    )
-}
-
 function estimateReadingTime(text: string): number {
     const wordsPerMinute = 200
     const words = text.trim().split(/\s+/).length
@@ -167,7 +150,7 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
     const recordMap = await notionApi.getPage(pageId)
 
     const previewImageMap = await getPreviewImageMap(recordMap)
-    ;(recordMap as any).preview_images = previewImageMap
+    ;(recordMap as ExtendedRecordMap).preview_images = previewImageMap
 
     return recordMap
 }
