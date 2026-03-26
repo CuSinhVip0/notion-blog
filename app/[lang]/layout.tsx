@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Plus_Jakarta_Sans } from "next/font/google"
 import { setRequestLocale } from "next-intl/server"
 import "@/styles/globals.css"
 import Header from "@/components/Header"
@@ -7,10 +7,11 @@ import Footer from "@/components/Footer"
 import Providers from "./providers"
 import { routing } from "@/i18n/routing"
 
-const inter = Inter({
+const googleSans = Plus_Jakarta_Sans({
     subsets: ["latin", "latin-ext"],
     display: "swap",
-    variable: "--font-inter",
+    variable: "--font-google-sans",
+    adjustFontFallback: false,
 })
 
 export const metadata: Metadata = {
@@ -45,14 +46,13 @@ export default async function RootLayout({
 }) {
     const { lang } = await params
     setRequestLocale(lang)
-    setRequestLocale(lang)
 
     return (
-        <html lang={lang} className={inter.variable} suppressHydrationWarning>
+        <html lang={lang} className={googleSans.variable} suppressHydrationWarning>
             <body className="min-h-screen flex flex-col bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
                 <Providers>
                     <Header />
-                    <main className="flex-1 pt-16">{children}</main>
+                    <main className="flex-1 min-h-screen">{children}</main>
                     <Footer />
                 </Providers>
             </body>
