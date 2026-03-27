@@ -119,7 +119,9 @@ export default function AboutPage() {
                                 {t("getInTouchBtn")}
                             </motion.a>
                             <motion.a
-                                href="#projects"
+                                href="https://github.com/CuSinhVip0"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="px-8 py-4 border border-neutral-300 dark:border-neutral-700 rounded-lg font-semibold hover:border-cyan-500 dark:hover:border-cyan-500 transition-colors"

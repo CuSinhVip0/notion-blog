@@ -41,7 +41,7 @@ export default function DisplayName({ hiIm = "Hi, I'm" }: DisplayNameProps) {
     return (
         <h1 className="mb-6">
             <motion.div
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-4 text-warp"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 text-warp"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
@@ -54,7 +54,7 @@ export default function DisplayName({ hiIm = "Hi, I'm" }: DisplayNameProps) {
                 >
                     {hiIm}
                 </motion.span>
-                <span className="relative block">
+                <span className="relative block text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
                     <motion.span
                         className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
                         initial={{ backgroundSize: "0% 100%" }}
