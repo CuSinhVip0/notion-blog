@@ -28,12 +28,6 @@ export default function Comments({ pageId, pageTitle, pageUrl }: CommentsProps) 
 
     const appId = process.env.NEXT_PUBLIC_CUSDIS_APP_ID
 
-    useEffect(() => {
-        if (typeof window !== "undefined" && window.CUSDIS) {
-            window.CUSDIS.setTheme(resolvedTheme === "dark" ? "dark" : "light")
-        }
-    }, [resolvedTheme])
-
     if (!appId) return null
 
     return (

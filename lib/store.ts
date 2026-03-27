@@ -16,3 +16,13 @@ export const useSearchStore = create<SearchState>((set) => ({
     setActiveTag: (tag) => set({ activeTag: tag }),
     reset: () => set({ query: "", activeTag: null }),
 }))
+
+interface PendingPostState {
+    pendingPostTitle: string | null
+    setPendingPostTitle: (title: string | null) => void
+}
+
+export const usePendingPostStore = create<PendingPostState>((set) => ({
+    pendingPostTitle: null,
+    setPendingPostTitle: (title) => set({ pendingPostTitle: title }),
+}))
