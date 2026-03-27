@@ -81,6 +81,7 @@ export default function Comments({ pageId, pageTitle, pageUrl }: CommentsProps) 
                         pageId,
                         pageTitle,
                         pageUrl,
+                        theme: (resolvedTheme ?? "dark") === "dark" ? "dark" : "light",
                     }}
                 />
             </div>

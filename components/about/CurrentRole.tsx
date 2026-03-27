@@ -22,7 +22,7 @@ export default function CurrentRole({ roles }: CurrentRoleProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="text-2xl sm:text-3xl md:text-4xl text-neutral-500 dark:text-neutral-400 mb-4 h-12"
+            className="text-lg sm:text-xl md:text-2xl text-neutral-500 dark:text-neutral-400 mb-4 h-12"
         >
             {roles[currentRole]}
         </motion.div>
